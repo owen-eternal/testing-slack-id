@@ -24,16 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      - name: install jq
-        run: jq --version
 
       # Runs a single command using the runners shell
       - name: Set selected color
         id: slack-id
-        run: |
-          curl "https://107a-197-90-80-162.ngrok.io" -o data.json
-          echo '::set-output name=SLACK_ID::'$(jq -r '.slack-handle' data.json)
+        run: echo '::set-output name=SLACK_ID::'$(curl "https://107a-197-90-80-162.ngrok.io" | jq ".slack-handle")
         
       - name: Get color
         run: echo "The selected color is ${{ steps.slack-id.outputs.SLACK_ID }}"
