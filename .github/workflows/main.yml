@@ -31,7 +31,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Set selected color
         id: slack-id
-        run: echo '::set-output name=SLACK_ID::'$(jq -r '.slack-handle' data.json)
+        run: echo '::set-output name=SLACK_ID::'$(data.json)
         
       - name: Get color
         run: echo "The selected color is ${{ steps.slack-id.outputs.SLACK_ID }}"
