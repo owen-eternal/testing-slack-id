@@ -29,8 +29,8 @@ jobs:
       - name: Set selected color
         id: slack-id
         run: |
-          content = curl "https://107a-197-90-80-162.ngrok.io" -H "Accept: application/json"
-          echo '::set-output name=SLACK_ID::'$(jq -r '.slack-handle' content)
+          curl "https://107a-197-90-80-162.ngrok.io" -o data.json
+          echo '::set-output name=SLACK_ID::'$(jq -r '.slack-handle' data.json)
         
       - name: Get color
         run: echo "The selected color is ${{ steps.slack-id.outputs.SLACK_ID }}"
