@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Set selected color
-        run: echo '::set-output name=SELECTED_COLOR::green'
-        id: random-color-generator
+        run: echo '::set-output name=SLACK_ID::246owen'
+        id: slack-id
       - name: Get color
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ steps.slack-id.outputs.SLACK_ID }}"
