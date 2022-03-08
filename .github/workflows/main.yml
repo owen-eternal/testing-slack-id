@@ -32,4 +32,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Display ID
-        run: echo "The selected color is ${{ steps.slack_id.outputs. }}"
+        run: echo "The selected color is ${{ steps.slack_id.outputs.SLACK_ID}}"
