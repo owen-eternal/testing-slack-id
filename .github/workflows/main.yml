@@ -26,9 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: install jq
-        run: |
-          sudo apt update
-          sudo apt install -y jq
+        run: jq --version
 
       # Runs a single command using the runners shell
       - name: Set selected color
