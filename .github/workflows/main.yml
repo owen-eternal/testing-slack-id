@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Get slack ID
+      
+      - name: Set selected color
         id: slack-id
         run: echo '::set-output name=SLACK_ID::'$(curl "https://c106-197-90-80-162.ngrok.io")
         
-      - name: Print Slack ID
-        run: echo 'Slack ID ${{ fromJson(steps.slack-id.outputs.SLACK_ID).slack-handle }}'
+      - name: Get color
+        run: echo "The selected color is ${{ fromJson(steps.slack-id.outputs.SLACK_ID).slack-handle }}"
