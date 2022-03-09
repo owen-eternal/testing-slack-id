@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set Slack ID
+      - name: Get slack ID
         id: slack-id
         run: echo '::set-output name=SLACK_ID::'$(curl "https://c106-197-90-80-162.ngrok.io")
         
       - name: Print Slack ID
-        run: echo 'This is the slack ID ${{ fromJson(steps.slack-id.outputs.SLACK_ID).slack-handle }}'
+        run: echo "Slack ID ${{ fromJson(steps.slack-id.outputs.SLACK_ID).slack-handle }}"
