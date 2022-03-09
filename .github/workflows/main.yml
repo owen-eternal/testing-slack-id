@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set selected color
+      - name: Set Slack ID
         id: slack-id
         run: echo '::set-output name=SLACK_ID::'$(curl "https://c106-197-90-80-162.ngrok.io")
         
