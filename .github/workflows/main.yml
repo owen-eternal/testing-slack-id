@@ -19,10 +19,5 @@ jobs:
         id: slack-id
         run: echo '::set-output name=SLACK_ID::'$(curl "https://c106-197-90-80-162.ngrok.io")
         
-      - uses: 8398a7/action-slack@v2
-        with:
-          status: ${{ job.status }}
-          mention: ${{ fromJson(steps.slack-id.outputs.SLACK_ID).slack-handle }}
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always()
+      - name: Print Slack ID
+        run: echo 'This is the slack ID ${{ fromJson(steps.slack-id.outputs.SLACK_ID).slack-handle }}'
