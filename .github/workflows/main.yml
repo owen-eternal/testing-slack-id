@@ -17,7 +17,7 @@ jobs:
       
       - name: Set selected color
         id: slack-id
-        run: echo '::set-output name=SLACK_ID::'$(curl "https://c106-197-90-80-162.ngrok.io")
+        run: echo '::set-output name=SLACK_ID::'$(curl "https://9763-197-90-80-162.ngrok.io")
         
       - name: Get color
         run: echo "The selected color is ${{ fromJson(steps.slack-id.outputs.SLACK_ID).slack-handle }}"
